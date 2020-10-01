@@ -1,11 +1,12 @@
-# HACKTOBER-FEST-2K20
-## Algorithms, Cheat-Sheet, and Resources
+# HACKTOBER-FEST-2020
+
+## Algorithms, Cheat-Sheet and Resources
 Collection of Useful Algorithms in multiple programming languages and some awesome cheat-sheet and resources for learning geeky stuffs.
 **Please Star The Repo If You Liked**
 
 ## Please find below the links to awesome cheat-sheet and resources:
 
-### Multiple platforms:
+### Multiple Platforms:
 - [A ridiculous collection of cheatsheets](https://devhints.io/)
 - [Awesome cheatsheets for popular programming languages, frameworks and development tools](https://lecoupa.github.io/awesome-cheatsheets/)
 - [📓 UI component dev & test: React, Vue, Angular, React Native, Ember, Web Components & more!](https://github.com/storybookjs/storybook)
@@ -24,7 +25,7 @@ Collection of Useful Algorithms in multiple programming languages and some aweso
 - [Deploy a Production Ready Kubernetes Cluster](https://github.com/kubernetes-sigs/kubespray)
 
 
-### Ds-Algo:
+### DS-Algo:
 - [Algorithms](https://www.udacity.com/course/intro-to-algorithms--cs215)
 - [Edx-Ds](https://www.edx.org/course/algorithms-data-structures-microsoft-dev285x-1?source=aw&awc=6798_1601540416_db9cffd6b888e98bf0308379212a7062&utm_source=aw&utm_medium=affiliate_partner&utm_content=text-link&utm_term=85386_VigLink+Content)
 - [My-favourite-resource](https://www.geeksforgeeks.org/data-structures/)
