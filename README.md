@@ -69,22 +69,7 @@ Collection of Useful Algorithms in multiple programming languages and some aweso
   - [Ember.js - A JavaScript framework for creating ambitious web applications](https://github.com/emberjs/ember.js)
   - [Fastify - Fast and low overhead web framework, for Node.js](https://github.com/fastify/fastify)
   - [Alpine - A rugged, minimal framework for composing JavaScript behavior in your markup](https://github.com/alpinejs/alpine)
-  - [📊 Cube.js - Open Source Analytics Framework](https://github.com/cube-js/cube.js)
-  #### General-Purpose Task Runners:
-  - [Webpack](https://github.com/webpack/webpack)
-  - [Gulp.js](https://github.com/gulpjs/gulp)
-  - [Grunt](https://github.com/gruntjs/grunt)  
-  #### Module Bundlers:
-  - [Browserify](https://github.com/browserify/browserify)
-  - [RequireJS](https://github.com/requirejs/r.js)
-  #### Linting:
-  - [ESLint](github.com/eslint/eslint)
-  - [JSHint](https://github.com/jshint/jshint)
-  - [JSLint](https://github.com/reid/node-jslint)
-  #### Test Suits:
-  - [Jest](https://github.com/facebook/jest)
-  - [Mocha](https://github.com/mochajs/mocha)
-  - [Jasmine](https://github.com/jasmine/jasmine-npm)
+  - [📊 Cube.js - Open Source Analytics Framework](https://github.com/cube-js/cube.js
 
 ### Python:
 - [Cool Python features for machine learning](https://github.com/chiphuyen/python-is-cool)
