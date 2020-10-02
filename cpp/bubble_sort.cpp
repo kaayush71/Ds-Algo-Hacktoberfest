@@ -29,10 +29,17 @@ void printArray(int arr[], int size)
 
 int main() 
 { 
-	int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
-	int n = sizeof(arr)/sizeof(arr[0]); 
+	int n;
+	cout<<"Enter the number of elements you want to sort\n";
+	cin>>n;
+	int arr[n];
+	cout<<"Enter the elements\n";
+	for(int i=0;i<n;i++) 
+		cin>>arr[i];
+	cout<<"Before sorting"<<endl;
+	printArray(arr, n); 
 	bubbleSort(arr, n); 
-	cout<<" Bubble Sort array: \n"; 
+	cout<<" After Bubble Sorting: \n"; 
 	printArray(arr, n); 
 	return 0; 
 }
