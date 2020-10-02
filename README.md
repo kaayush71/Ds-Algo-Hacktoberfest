@@ -1,6 +1,7 @@
 # HacktoberFest2k20
 
 Beginner Friendly repository for hacktoberfest.
+Contribute as much as you can by bindind to the below mentioned rules.
 
 ## Rules :
 
@@ -8,10 +9,11 @@ Beginner Friendly repository for hacktoberfest.
 
 2. If the source code contains single file like DS and algorithms implementation, add them as it is else wrap the content in a folder with the name of project .
 
-3. Happy Hacking 
+3. Happy Hacking and keep implementing your leanings in real life.
 
 ## Algorithms, Cheat-Sheet and Resources
 Collection of Useful Algorithms in multiple programming languages and some awesome cheat-sheet and resources for learning geeky stuffs.
+
 **Please Star The Repo If You Liked**
 
 ## Please find below the links to awesome cheat-sheet and resources:
