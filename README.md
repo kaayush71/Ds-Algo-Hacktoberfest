@@ -82,11 +82,12 @@ Collection of Useful Algorithms in multiple programming languages and some aweso
   - [Ember.js - A JavaScript framework for creating ambitious web applications](https://github.com/emberjs/ember.js)
   - [Fastify - Fast and low overhead web framework, for Node.js](https://github.com/fastify/fastify)
   - [Alpine - A rugged, minimal framework for composing JavaScript behavior in your markup](https://github.com/alpinejs/alpine)
-  - [📊 Cube.js - Open Source Analytics Framework](https://github.com/cube-js/cube.js
+  - [📊 Cube.js - Open Source Analytics Framework](https://github.com/cube-js/cube.js)
 
 ### Python:
 - [Cool Python features for machine learning](https://github.com/chiphuyen/python-is-cool)
-- [A collection of Python Scripts made for fun, while exploring Python 🐍](https://github.com/thepushkarp/JFF-Python-Scripts
+- [A collection of Python Scripts made for fun, while exploring Python 🐍](https://github.com/thepushkarp/JFF-Python-Scripts)
+- [Cheatsheet](https://github.com/Ds-Algo-Hacktoberfest/blob/master/Python/cheatsheet.md#python-cheatsheet)
 
 ### Must Must have Chrome-Extensions:
 - [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca)
