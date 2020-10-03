@@ -1,11 +1,29 @@
-#To reverse a string with funtion
+print("Welcome to the reverse Name Code")
+print("Enter your name as we will reverse it.")
+print("Choose option 1 or 2")
+choice=input("Choose your technique")
+first = input("Enter first name:")
+last = input("Enter last name:")
 
+def reverseWord(first,last):
+    print("The reversed message is " + first[::-1]+" " +last[::-1])
 
-def rev_string(s):      #funtion to reverse string
-	a=s[::-1]       
-	return a
+def reverseEverything():
+    message=first+" "+ last
+    translated=""
 
-s1=input("enter the string ")  #taking input
-r1=rev_string(s1)              #calling function
+    i=len(message)-1
+    #index starts from 0
 
-print(r1)                      #print the reverse of the string
+    while i>=0:
+        translated=translated+message[i]
+        i=i-1
+        
+    print(translated)
+
+if choice==1:
+    reverseWord()
+if choice==2:
+    reverseEverything()
+else:
+    print("Option not available")
