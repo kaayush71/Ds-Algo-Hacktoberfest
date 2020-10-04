@@ -85,7 +85,7 @@ Collection of Useful Algorithms in multiple programming languages and some aweso
 ### Python:
 - [Cool Python features for machine learning](https://github.com/chiphuyen/python-is-cool)
 - [A collection of Python Scripts made for fun, while exploring Python 🐍](https://github.com/thepushkarp/JFF-Python-Scripts)
-- [Cheatsheet](https://github.com/ag3n7/Ds-Algo-Hacktoberfest/blob/master/Python/cheatsheet.md#python-cheatsheet)
+- [Cheatsheet](https://github.com/Ds-Algo-Hacktoberfest/blob/master/Python/cheatsheet.md#python-cheatsheet)
 
 ### Must Must have Chrome-Extensions:
 - [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca)
