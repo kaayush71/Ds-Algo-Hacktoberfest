@@ -6,4 +6,12 @@ for num in range(n,m+1):
             if(num%i==0):
                 break
         else:
-            print(num)     
+            print(num) 
+            
+celsius = int(input("Enter temp."))
+
+fahrenheit = (celsius * 1.8) + 32
+print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
+
+
+
