@@ -3,6 +3,8 @@
 - [Python Basics](#python-basics)
     - [Math Operators](#math-operators)
     - [Data Types](#data-types)
+    - [Variables](#variables)
+    - [Comments](#comments)
  ## Python Basics
 
 ### Math Operators
@@ -60,3 +62,42 @@ Examples of expressions in the interactive shell:
 | Strings                | `'a', 'aa', 'aaa', 'Hello!', '11 cats'`   |
 
 [*Return to the Top*](#python-cheatsheet)
+
+
+### Variables
+
+You can name a variable anything as long as it obeys the following rules:
+
+* It can be only be a single word.
+* Use combination of letters, numbers, and the underscore (`_`) character only.
+* It can’t begin with a number.
+
+Example:
+
+```python
+>>> abc = 'Hello'
+>>> abc
+'Hello'
+```
+
+### Comments
+
+Inline comment:
+
+```python
+# This is a comment
+```
+
+Multiline comment:
+
+```Python
+# This is a
+# multiline comment
+```
+
+
+[_Return to the Top_](#python-cheatsheet)
+
+
+
+
