@@ -8,7 +8,7 @@ msg=""
 if(hour>6 and hour<12):
 	msg="Good Morning"
 elif(hour>=12 and hour<6):
-ea	msg="Good Afternoon"
+	msg="Good Afternoon"
 else:
 	msg="Good Evening"
 
