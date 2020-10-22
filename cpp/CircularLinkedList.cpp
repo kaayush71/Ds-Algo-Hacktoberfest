@@ -1,199 +1,113 @@
 #include <iostream>
-#include <cstdlib>
 
-using namespace std;
+using std::cout;
+using std::cin;
 
-struct node
-{
-    int info;
-    struct node *next;
+class IntNode{
+    public:
+        /* Constructors */
+        IntNode() {}
+        IntNode(int theData): data(theData), link(NULL) {}
+        IntNode(int theData, IntNode* theLink): data(theData), link(theLink) {}
+        ~IntNode() {}      //Destructor
+        
+        /* Accessors */
+        int getData() const { return data; }
+        IntNode* getLink() const { return link; }
+        
+        /* Mutators */
+        void setData(int theData) { data = theData; }
+        void setLink(IntNode* pointer) { link = pointer; }
+    
+    private:
+        int data;
+        IntNode *link;
 };
 
-node *last = nullptr;
+typedef IntNode* IntNodePtr;
 
-void Display()
-{
-    struct node *s;
-    if (last == nullptr)
-    {
-        cout << "List is empty, nothing to display" << endl;
-        return;
-    }
-    s = last->next;
-    cout << "Circular Link List: " << endl;
-    while (s != last)
-    {
-        cout << s->info << "->";
-        s = s->next;
-    }
-    cout << s->info << endl;
+/* Creates a circular linked list containing "suitors" number of nodes */
+IntNodePtr lineUpSuitors(int suitors);
+
+/* Output linked list.  Because this demonstration concerns circular lists
+    this function halts output when the pointer of the final element 
+    points back to the first.  This function also works for single nodes
+    that refer to themselves. */
+void outputList(IntNodePtr head);
+
+/* Remove and delete every third node in the circular linked list until
+    one remains.  */
+IntNodePtr eliminateSuitors(IntNodePtr);
+
+int main(){
+    int numSuitors = 0;
+    
+    /* Prompt for suitors */
+    cout << "\nHow many suitors (in integers) does Eve have: ";
+    cin >> numSuitors;
+    
+    /* Create circular linked list */
+    IntNodePtr head = lineUpSuitors(numSuitors);
+    
+    /* Confirm accuracy of linked list */
+    cout << "\nThe suitors are lined up by number: ";
+    outputList(head);
+    
+    /* Eliminate every third suitor until one remains and output result */
+    head = eliminateSuitors(head);
+    cout << "\nEve eliminates every third suitor (starting at 1)"
+          << " and selects suitor: ";
+    outputList(head);
+    
+    delete head;    //Discard final node
+    
+    cout << "\n";      //Extra space for readability
+    return 1;
 }
 
-void createNode(int value)
-{
-    struct node *temp;
-    temp = new (struct node);
-    temp->info = value;
-    if (last == nullptr)
-    {
-        last = temp;
-        temp->next = last;
+/* Creates a circular linked list containing "suitors" number of nodes */
+IntNodePtr lineUpSuitors(int suitors){
+    IntNodePtr head = new IntNode(1), current = head;
+    
+    for(int i = 2; i <= suitors; i++){        
+        current->setLink(new IntNode(i));
+        current = current->getLink();
     }
-    else
-    {
-        temp->next = last->next;
-        last->next = temp;
-        last = temp;
-    }
-    Display();
+    
+    current->setLink(head);
+    
+    return head;
 }
 
-void addBegin(int value)
-{
-    if (last == nullptr)
-    {
-        cout << "First Create the list." << endl;
-        return;
+/* Output linked list.  Because this demonstration concerns circular lists
+    this function halts output when the pointer of the final element 
+    points back to the first.  This function also works for single nodes
+    that refer to themselves. */
+void outputList(IntNodePtr head){
+    IntNodePtr current = head;
+    
+    cout << current->getData();
+    
+    while(current->getLink() != head){
+        current = current->getLink();
+        cout << current->getData();
     }
-    struct node *temp;
-    temp = new (struct node);
-    temp->info = value;
-    temp->next = last->next;
-    last->next = temp;
-
-    Display();
+    
+    cout << "\n";      //Extra space for readability
 }
 
-void addAfter(int value, int pos)
-{
-    if (last == nullptr)
-    {
-        cout << "First Create the list." << endl;
-        return;
+/* Remove and delete every third node in the circular linked list until
+    one remains.  */
+IntNodePtr eliminateSuitors(IntNodePtr head){
+    IntNodePtr current = head->getLink(), next = current->getLink();
+    
+    while(current->getLink() != current){
+        current->setLink(next->getLink());
+        delete next;
+        head = current->getLink();
+        current = head->getLink();
+        next = current->getLink();
     }
-    struct node *temp, *s;
-    s = last->next;
-    for (int i = 0; i < pos - 1; i++)
-    {
-        s = s->next;
-        if (s == last->next)
-        {
-            cout << "There are less than ";
-            cout << pos << " in the list" << endl;
-            return;
-        }
-    }
-    temp = new (struct node);
-    temp->next = s->next;
-    temp->info = value;
-    s->next = temp;
-
-    if (s == last)
-    {
-        last = temp;
-    }
-    Display();
-}
-
-void Delete(int value)
-{
-    struct node *temp, *s;
-    s = last->next;
-
-    if (last->next == last && last->info == value)
-    {
-        temp = last;
-        last = nullptr;
-        free(temp);
-        Display();
-        return;
-    }
-    if (s->info == value)
-    {
-        temp = s;
-        last->next = s->next;
-        free(temp);
-        Display();
-        return;
-    }
-    while (s->next != last)
-    {
-
-        if (s->next->info == value)
-        {
-            temp = s->next;
-            s->next = temp->next;
-            free(temp);
-            cout << "Element " << value;
-            cout << " deleted from the list" << endl;
-            Display();
-            return;
-        }
-        s = s->next;
-    }
-
-    if (s->next->info == value)
-    {
-        temp = s->next;
-        s->next = last->next;
-        free(temp);
-        last = s;
-        Display();
-        return;
-    }
-    cout << "Element " << value << " not found in the list" << endl;
-}
-
-int main()
-{
-    int choice, element, position;
-
-    while (1)
-    {
-        cout << "1.Create Node" << endl;
-        cout << "2.Add at beginning" << endl;
-        cout << "3.Add after a position" << endl;
-        cout << "4.Delete" << endl;
-        cout << "5.Quit" << endl;
-        cout << "Enter your choice : ";
-        cin >> choice;
-        switch (choice)
-        {
-        case 1:
-            cout << "Enter the element: ";
-            cin >> element;
-            createNode(element);
-            cout << endl;
-            break;
-        case 2:
-            cout << "Enter the element: ";
-            cin >> element;
-            addBegin(element);
-            cout << endl;
-            break;
-        case 3:
-            cout << "Enter the element: ";
-            cin >> element;
-            cout << "Insert element after position: ";
-            cin >> position;
-            addAfter(element, position);
-            cout << endl;
-            break;
-        case 4:
-            if (last == nullptr)
-            {
-                cout << "List is empty, nothing to delete" << endl;
-                break;
-            }
-            cout << "Enter the element for deletion: ";
-            cin >> element;
-            Delete(element);
-            cout << endl;
-            break;
-        case 5:
-            exit(0);
-        default:
-            cout << "Wrong choice" << endl;
-        }
-    }
+    
+    return current;
 }
