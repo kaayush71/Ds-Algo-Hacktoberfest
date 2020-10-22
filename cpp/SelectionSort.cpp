@@ -1,31 +1,56 @@
-#include <bits/stdc++.h>
-#include <stdio.h>
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <fstream>
+#include <cmath>
+#include <cstring>
+
 using namespace std;
+const int ARRAY_SIZE = 7;
+
+void selectionSort(int list[], int length);
+
 int main()
 {
-    int n,i,j,minIndex,t;
-    cin>>n;
-    int a[n];
-    for (i=0;i<n;i++)
-    {
-        cin>>a[i];
-    }
-    for (i=0;i<n-1;i++)
-    {
-        minIndex=i;
-        for(j=i;j<n;j++)
-        {
-            if(a[j] < a[minIndex])
-                minIndex=j;
-        }
-        t=a[i];
-        a[i]=a[minIndex];
-        a[minIndex]=t;
-    }
-    for (i=0;i<n;i++)
-    {
-        cout<<a[i]<<" ";
-    }
+	int i;
+	int arr[] = { 35, 12, 27, 18, 45, 16, 38 };
 
-    return 0;
+	cout << "The unsorted list is: ";
+
+	for (i = 0; i < ARRAY_SIZE; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+
+	selectionSort(arr, ARRAY_SIZE);
+
+	cout << "The sorted list is: ";
+
+	for (i = 0; i < ARRAY_SIZE; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+
+	return 0;
+}
+
+void selectionSort(int list[], int length) {
+	int index;
+	int smallestIndex;
+	int location;
+	int temp;
+
+	for (index = 0; index < length - 1; index++) {
+		// step a (find smallest element)
+		smallestIndex = index;
+		for (location = index + 1; location < length; location++) {
+			if (list[location] < list[smallestIndex]) {
+				smallestIndex = location;
+			}
+		}
+		// step b (swap elements)
+		temp = list[smallestIndex];
+		list[smallestIndex] = list[index];
+		list[index] = temp;
+	}
 }
