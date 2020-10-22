@@ -1,38 +1,100 @@
-class DoubleLinkedList<T>
+public static void Main()
 {
-  private T value;
-  private LinkedList<T> next;
-  private LinkedList<T> prev;
+    	DoubleLinkedList list = new DoubleLinkedList();
+	list.Insert("1");
+	list.Insert("2");
+	list.Insert("3");
+	
+	DoubleLink link4 = list.Insert("4");
+	list.Insert("5");
+	Console.WriteLine("List: " + list);
+	
+	list.InsertAfter(link4, "[4a]");
+	Console.WriteLine("List: " + list);
+	Console.Read();
+}
 
-  public DoubleLinkedList(LinkedList<T> prev, T value, LinkedList<T> next) {
-    SetPrev(prev);
-    SetValue(value);
-    SetNext(next);
-  }
+public class DoubleLink
+{
+    public string Title { get; set; }
+	public DoubleLink PreviousLink { get; set; }
+	public DoubleLink NextLink { get; set; }
 
-  public DoubleLinkedList(T value) : this(null, value, null){}
+	public DoubleLink(string title)
+	{
+		Title = title;
+	}
 
-  public LinkedList<T> GetPrev() {
-    return prev;
-  }
+	public override string ToString()
+	{
+		return Title;
+	}
+}
 
-  public T GetValue() {
-    return value;
-  }
+public class DoubleLinkedList
+{
+	private DoubleLink _first;
+	public bool IsEmpty
+	{
+		get
+		{
+			return _first == null;
+		}
+	}
+	public DoubleLinkedList()
+	{
+		_first = null;
+	}
 
-  public LinkedList<T> GetNext() {
-    return next;
-  }
+	public DoubleLink Insert(string title)
+	{
+		// Creates a link, sets its link to the first item and then makes this the first item in the list.
+		DoubleLink link = new DoubleLink(title);
+		link.NextLink = _first;
+		if (_first != null)
+			_first.PreviousLink = link;
+		_first = link;
+		return link;
+	}
 
-  public void SetPrev(LinkedList<T> prev) {
-    this.prev = prev;
-  }
+	public DoubleLink Delete()
+	{
+		// Gets the first item, and sets it to be the one it is linked to
+		DoubleLink temp = _first;
+		if (_first != null)
+		{
+			_first = _first.NextLink;
+			if (_first != null)
+				_first.PreviousLink = null;
+		}
+		return temp;
+	}
 
-  public void SetValue(T value) {
-    this.value = value;
-  }
+	public override string ToString()
+	{
+		DoubleLink currentLink = _first;
+		StringBuilder builder = new StringBuilder();
+		while (currentLink != null)
+		{
+			builder.Append(currentLink);
+			currentLink = currentLink.NextLink;
+		}
+		return builder.ToString();
+	}
 
-  public void SetNext(LinkedList<T> next) {
-    this.next = next;
-  }
+	///// New operations
+	public void InsertAfter(DoubleLink link, string title)
+	{
+		if (link == null || string.IsNullOrEmpty(title))
+			return;
+		DoubleLink newLink = new DoubleLink(title);
+		newLink.PreviousLink = link;
+		// Update the 'after' link's next reference, so its previous points to the new one
+		if (link.NextLink != null)
+			link.NextLink.PreviousLink = newLink;
+		// Steal the next link of the node, and set the after so it links to our new one
+		newLink.NextLink = link.NextLink;
+		link.NextLink = newLink;
+	}
+}
 }
