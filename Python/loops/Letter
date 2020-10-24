@@ -1,0 +1,4 @@
+#Print the letter "F" using loops.
+nums= [5,2,5,2,2]
+for item in nums:
+    print((item*'x'))
