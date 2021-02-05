@@ -1,28 +1,50 @@
 
-"""binary search in c++"""
 
-#include<iostream>
-using namespace std;
-int binarySearch(int arr[], int p, int r, int num) {
-   if (p <= r) {
-      int mid = (p + r)/2;
-      if (arr[mid] == num)
-      return mid ;
-      if (arr[mid] > num)
-      return binarySearch(arr, p, mid-1, num);
-      if (arr[mid] > num)
-      return binarySearch(arr, mid+1, r, num);
-   }
-   return -1;
-}
-int main(void) {
-   int arr[] = {1, 3, 7, 15, 18, 20, 25, 33, 36, 40};
-   int n = sizeof(arr)/ sizeof(arr[0]);
-   int num = 33;
-   int index = binarySearch (arr, 0, n-1, num);
-   if(index == -1)
-   cout<< num <<" is not present in the array";
-   else
-   cout<< num <<" is present at index "<< index <<" in the array";
-   return 0;
-}
+# iterative implementation of binary search in Python
+
+
+def binary_search(a_list, item):
+    """Performs iterative binary search to find the position of an integer in a given, sorted, list.
+    a_list -- sorted list of integers
+    item -- integer you are searching for the position of
+    """
+
+    first = 0
+    last = len(a_list) - 1
+
+    while first <= last:
+        i = (first + last) / 2
+
+        if a_list[i] == item:
+            return '{item} found at position {i}'.format(item=item, i=i)
+        elif a_list[i] > item:
+            last = i - 1
+        elif a_list[i] < item:
+            first = i + 1
+        else:
+            return '{item} not found in the list'.format(item=item)
+
+
+# recursive implementation of binary search in Python
+
+
+def binary_search_recursive(a_list, item):
+    """Performs recursive binary search of an integer in a given, sorted, list.
+    a_list -- sorted list of integers
+    item -- integer you are searching for the position of
+    """
+
+    first = 0
+    last = len(a_list) - 1
+
+    if len(a_list) == 0:
+        return '{item} was not found in the list'.format(item=item)
+    else:
+        i = (first + last) // 2
+        if item == a_list[i]:
+            return '{item} found'.format(item=item)
+        else:
+            if a_list[i] < item:
+                return binary_search_recursive(a_list[i+1:], item)
+            else:
+                return binary_search_recursive(a_list[:i], item)
