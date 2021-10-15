@@ -1,0 +1,41 @@
+import java.util.*;
+
+//this function will return -1 if the element is not found
+//returns the index if element is found
+
+class binarysearch {
+    int binarySearch(int arr[], int l, int r, int x) {
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+
+            if (arr[mid] == x)
+                return mid;
+
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+
+            return binarySearch(arr, mid + 1, r, x);
+        }
+
+        return -1; //element not found
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        BinarySearch ob = new BinarySearch();
+        System.out.println("Enter array size");
+        int l = sc.nextInt();
+        int arr[] = new int[l];
+        System.out.println("Enter the array");
+        for (int i = 0; i < l; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Enter the number to be searched");
+        int n = sc.nextInt();
+        int result = ob.binarySearch(arr, 0, n - 1, x);
+        if (result == -1)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found at index " + result);
+    }
+}
